@@ -4,7 +4,6 @@
     <style>
         .main-container{
             background-color: #666666;
-            height: 430px;
             width: 350px;
             margin: 20px auto;
             border: 2px solid #7e7a7a;
@@ -12,18 +11,46 @@
         }
         .display-container{
             background-color: #262626;
-            height: 100px ;
+            height: 120px ;
             border: 2px solid #070707;
             border-radius: 10px;
         }
         .display-screen{
             background-color: #ccffeb;
-            margin: 20px 18 px;
-            height: 50px;
+            margin: 20px 18px;
+            height: 60px;
             width: 300px;
-            font-size: 50px;
+            font-size: 55px;
             text-align: right;
         }
+        .button-container{
+            background-color: #666666;
+            height: 330px;
+            display: flex;
+            border: 2px solid #7e7a7a;
+            border-radius: 0 0 10px 10px;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .btn{
+            background-color: #262626;
+            color: white;
+            box-shadow: 1px 2px #151212 ;
+            height: 43px;
+            width: 50px;
+            margin: 10px;
+            font-size: 26px;
+            border: 1px solid #535151;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .btn-1{
+            height: 100px;
+        }
+        .btn-2{
+            background-color: #7e7a7a;
+        }
+
     </style>
     <title>Calculator</title>
 </head>
@@ -31,9 +58,36 @@
     <div class="main-container">
         <div class="display-container">
             <input type="text" value="0" class="display-screen" id="display">
-
         </div>
         <div class="button-container">
+            <button class="btn">%</button>
+            <button class="btn">+/-</button>
+            <button class="btn">C</button>
+            <button class="btn btn-2">AC</button>
+            <button class="btn">0</button>
+
+            <button class="btn">^</button>
+            <button class="btn">7</button>
+            <button class="btn">4</button>
+            <button class="btn">1</button>
+            <button class="btn">00</button>
+
+            <button class="btn">(</button>
+            <button class="btn">8</button>
+            <button class="btn">5</button>
+            <button class="btn">2</button>
+            <button class="btn">.</button>
+
+            <button class="btn">)</button>
+            <button class="btn">9</button>
+            <button class="btn">6</button>
+            <button class="btn">3</button>
+            <button class="btn">=</button>
+
+            <button class="btn">/</button>
+            <button class="btn">*</button>
+            <button class="btn">-</button>
+            <button class="btn btn-1" >+</button>
 
         </div>
     </div>
