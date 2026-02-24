@@ -57,7 +57,8 @@
         .btn-2 {
             background-color: #7e7a7a;
         }
-        .btn:hover{
+
+        .btn:hover {
             background-color: #666666;
             color: white;
         }
@@ -102,7 +103,46 @@
 
         </div>
     </div>
-   
+    <script>
+
+        const displayElement = document.getElementById("display");
+        const buttonsElement = document.querySelectorAll(".btn");
+
+        let currentInput = "";
+
+        buttonsElement.forEach(button => {
+            button.addEventListener("click", () => {
+                const value = button.innerText;
+
+                if (value === "AC") {
+                    currentInput = "";
+                    displayElement.value = "0";
+                }
+                else if (value === "C") {
+                    currentInput = currentInput.slice(0, -1);
+                    displayElement.value = currentInput || "0";
+                }
+                else if (value === "=") {
+                    try {
+                        currentInput = eval(currentInput);
+                        displayElement.value = currentInput;
+                    } catch {
+                        displayElement.value = "Error";
+                    }
+                }
+                else if (value === "+/-") {
+                    currentInput = String(-eval(currentInput));
+                    display.value = currentInput;
+                }
+                else {
+                    currentInput += value;
+                    displayElement.value = currentInput;
+                }
+            })
+        })
+
+    </script>
+
 </body>
 
 </html>
