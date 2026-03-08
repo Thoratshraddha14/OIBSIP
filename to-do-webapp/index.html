@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TO-DO-WEBAPP</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 100px;
+            padding: 0;
+            background:linear-gradient(to right,#0f2027,#203a43,#2c5464);
+        }
+        .main-container{
+            width: 80%;
+            margin: auto;
+            display: flex;
+            gap: 40px;
+        }
+        .list-input{
+            background-color: white;
+            padding: 20px;
+            width: 350px;
+            border-radius: 8px;
+            border: 1px solid black; 
+            padding:50px;  
+        }
+        .text-input , .description-input{
+            width: 93%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1x solid #ccc;
+            font-size: 20px;
+        }
+        .description-input{
+            height: 350px;
+        }
+        button{
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        button:hover{
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="list-input">
+            <form class="todoform">
+            <input type="text" class="text-input" placeholder="Title" required>
+            <textarea class="description-input" placeholder="Discription" required></textarea>
+            <button type="submit">Save</button>
+            </form>
+        </div>
+        <div class="list-output"></div>
+    </div>
+</body>
+</html>
