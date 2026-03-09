@@ -1,9 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>To-Do-Webapp</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5464);
+            margin: 100px;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            gap: 40px;
+        }
+
+        .form-box {
+            background: white;
+            padding: 50px;
+            width: 320px;
+            border-radius: 8px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            font-size: 20px;
+        }
+        textarea{
+            height: 220px;
+        }
+
+        button {
+            width: 100%;
+            font-size: 20px;
+            margin-left: 5px;
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="form-box">
+            <form>
+                <input type="text" id="title" placeholder="Title" required>
+                <textarea id="description" placeholder="Description" required></textarea>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+
+        <div class="task-area">
+            <div id="taskList"></div>
+        </div>
+    </div>
+
 </body>
+
 </html>
