@@ -32,7 +32,8 @@
             border: 1px solid #ccc;
             font-size: 20px;
         }
-        textarea{
+
+        textarea {
             height: 220px;
         }
 
@@ -46,13 +47,67 @@
             border: none;
             cursor: pointer;
         }
+
+        .task-area {
+            flex: 1;
+        }
+
+        .task-header {
+            display: flex;
+            background: #ffffff30;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .task-header span {
+            width: 42%;
+        }
+
+        .task-header span:last-child {
+            width: 15%;
+        }
+
+        .task {
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .task span {
+            width: 50%;
+            font-size: 16px;
+            word-break: break-word;
+        }
+
+        .task button {
+            width: 20%;
+            background: red;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+           
+        }
+
+        .task button:hover {
+            background: darkred;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="form-box">
-            <form>
+            <form id="todoform">
                 <input type="text" id="title" placeholder="Title" required>
                 <textarea id="description" placeholder="Description" required></textarea>
                 <button type="submit">Save</button>
@@ -60,9 +115,66 @@
         </div>
 
         <div class="task-area">
+            <div class="task-header">
+                <span>Title</span>
+                <span>Description</span>
+                <span>Delete</span>
+            </div>
             <div id="taskList"></div>
         </div>
     </div>
+
+    <script>
+        const elementForm = document.getElementById("todoform");
+        const elementTaskList = document.getElementById("taskList");
+
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        showTasks();
+
+        elementForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const elementTitle = document.getElementById("title").value;
+            const elementDescription = document.getElementById("description").value;
+
+            const task = {
+                title: elementTitle,
+                description: elementDescription
+            };
+
+            tasks.push(task);
+
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+
+            elementForm.reset();
+            showTasks();
+        });
+
+        function showTasks() {
+            elementTaskList.innerHTML = "";
+            tasks.forEach(function (task, index) {
+                const div = document.createElement("div");
+                div.className = "task";
+
+                div.innerHTML = `
+                    <span>${task.title}</span>
+                    <span>${task.description}</span>
+                    <button class="delete" onclick="deleteTask(${index})">X</button>`;
+
+                elementTaskList.appendChild(div);
+            });
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+
+            showTasks();
+        }
+
+
+    </script>
 
 </body>
 
