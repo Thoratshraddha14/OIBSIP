@@ -23,6 +23,7 @@ if(username===storedUser && password===storedPass){
 
 document.getElementById("message").innerText="Login Successful";
 
+window.location="home.html";
 
 }
 
